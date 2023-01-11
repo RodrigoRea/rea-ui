@@ -1,0 +1,54 @@
+<div class="tc-background-modal" *ngIf="open" >{{ checkIsOpen() }}</div>
+
+<div class="base-modal" *ngIf="open">
+  <div class="sub-modal" [@fade]="'visible'">
+    <div class="tc-modal tc-modal-shadow" [attr.style]="'max-width: ' + maxWidth + 'px;'">
+      <div class="area-top-actions">
+        <button type="button" [class.no-use-header]="title" (click)="toClose()" [disabled]="loading">
+          <i *ngIf="!loading" class="fas fa-times"></i>
+          <i *ngIf="loading" class="fas fa-spinner fa-spin"></i>
+        </button>
+      </div>
+
+      <h4 *ngIf="title" [innerHTML]="title"></h4>
+
+      <ng-content></ng-content>
+
+    </div>
+  </div>
+</div>
+
+<!-- Ex: Modal -->
+<!-- 
+  <rea-ui-modal [(open)]="open">
+
+    <rea-ui-modal-header title="Título do Modal" ></rea-ui-modal-header>
+
+    <rea-ui-modal-body>
+      Conteúdo do modal aqui
+    </rea-ui-modal-body>
+
+    <rea-ui-modal-footer></rea-ui-modal-footer>
+
+  </rea-ui-modal>
+
+  <button type="button" (click)="open = !open">open modal {{ open }}</button>
+-->
+
+<!-- ****** -->
+<!-- ****** -->
+<!-- ****** -->
+<!-- ****** -->
+
+<!-- Ex: Confirm Modal -->
+<!-- 
+  <rea-ui-modal [(open)]="open_confirm" [title]="'Atenção'" [confirmText]="'Aceito'" [confirm]="true" (toAction)="$event" >
+
+    <rea-ui-modal-body>Deseja realmente executar esta ação?</rea-ui-modal-body>
+
+    <rea-ui-modal-footer></rea-ui-modal-footer>
+
+  </rea-ui-modal>
+
+  <button type="button" (click)="open_confirm = !open_confirm">open_confirm modal {{ open_confirm }}</button>
+-->

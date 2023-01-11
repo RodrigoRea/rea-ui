@@ -1,0 +1,30 @@
+<div class="tc-modal-footer">
+
+  <div class="input-confirm" *ngIf="param_confirm && param_confirm.confirmText">
+    <p>Digite a palavra <strong>&quot;{{ param_confirm.confirmText }}&quot;</strong> para confirmar.</p>
+    
+    <form #_formulario="ngForm" (ngSubmit)="toConfirm(_formulario.valid)">
+      <input 
+        [disabled]="loading"
+        placeholder="{{ param_confirm.confirmText }}"
+        name="txt_value" 
+        [(ngModel)]="txt_value" 
+        type="text" 
+        class="form-control form-confirm" 
+        required 
+        [class.different-text]="(txt_value).length >= (param_confirm.confirmText).length && (txt_value).toLowerCase() !== (param_confirm.confirmText).toLowerCase()" >
+    </form>
+
+  </div>
+
+  <hr>
+
+  <div class="actions-footer {{ (loading) ? 'state-loading' : '' }}">
+    <!-- {{ param_confirm | json }} -->
+    <button [disabled]="loading" *ngIf="param_confirm && !param_confirm.confirm" type="button" class="btn-new-grey" (click)="toClose()">{{ btnCloseText }}</button>
+
+    <button [disabled]="loading" *ngIf="param_confirm && param_confirm.confirm" type="button" class="btn-new-grey" (click)="toCancel()">{{ btnCancelText }}</button>
+    <button [disabled]="(txt_value).toLowerCase() !== (param_confirm.confirmText).toLowerCase() || loading" *ngIf="param_confirm && param_confirm.confirm" type="button" class="ml-3 btn-new-green" (click)="toConfirm(_formulario?.valid)">{{ btnConfirmText }}</button>
+
+  </div>
+</div>

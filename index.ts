@@ -1,0 +1,1 @@
+export * from './src/app/_modules/rea-ui-modal/rea-ui-modal.module';

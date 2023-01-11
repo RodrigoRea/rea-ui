@@ -1,0 +1,26 @@
+.actions-footer{
+  text-align: right;
+}
+
+.ng-valid.ng-touched.different-text{ /* , .ng-valid .different-text */
+  border-color: #fb9c23;
+}
+
+.form-confirm{
+  max-width: 200px;
+}
+
+button:disabled{
+  opacity: 0.7 !important;
+  cursor: not-allowed;
+}
+
+.input-confirm{
+  padding: 5px 14px;
+}
+
+.state-loading{
+  button{
+    cursor: progress !important;
+  }  
+}

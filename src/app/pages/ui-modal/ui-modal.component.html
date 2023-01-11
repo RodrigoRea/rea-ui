@@ -1,0 +1,19 @@
+
+<rea-ui-modal [(open)]="open">
+  <rea-ui-modal-header title="Título do Modal" ></rea-ui-modal-header>
+  <rea-ui-modal-body>
+    Conteúdo do modal aqui
+  </rea-ui-modal-body>
+  <rea-ui-modal-footer></rea-ui-modal-footer>
+</rea-ui-modal>
+
+<button type="button" (click)="open = !open">open modal {{ open }}</button>
+
+<br>
+
+<rea-ui-modal [(open)]="open_confirm" [title]="'Atenção'" [confirmText]="'Aceito'" [confirm]="true" (toAction)="$event" >
+    <rea-ui-modal-body>Deseja realmente executar esta ação?</rea-ui-modal-body>
+    <rea-ui-modal-footer></rea-ui-modal-footer>
+</rea-ui-modal>
+
+<button type="button" (click)="open_confirm = !open_confirm">open_confirm modal {{ open_confirm }}</button>
