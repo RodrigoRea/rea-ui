@@ -3,10 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppRoutingModule } from './app-routing.module';
 
-import { ReaUiModule } from './_modules/modules.module';
 import { UiModalComponent } from './pages/ui-modal/ui-modal.component';
+import { ReaUiModalModule } from './_modules/rea-ui-modal/rea-ui-modal.module';
 
 @NgModule({
   declarations: [
@@ -16,9 +15,7 @@ import { UiModalComponent } from './pages/ui-modal/ui-modal.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
-
-    ReaUiModule
+    ReaUiModalModule
   ],
   providers: [],
   bootstrap: [AppComponent]
